@@ -59,4 +59,4 @@ font-family: 'Montserrat', sans-serif;
 
 ## Live Preview
 
-http://paulmedwards.github.io/UI-Design/
+https://paulmedwards.github.io/LambdaSchool_Week07-08_Build01_UI-Design/

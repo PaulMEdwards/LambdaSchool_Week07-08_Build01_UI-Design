@@ -59,4 +59,4 @@ font-family: 'Montserrat', sans-serif;
 
 ## Live Preview
 
-https://build-week-event-planner.github.io/UI-Design/
+http://paulmedwards.github.io/UI-Design/

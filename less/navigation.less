@@ -2,9 +2,39 @@
 header {
   width: 100%;
   color: @header-font-color;
-  background-color: @nav-bg-color;
+  // background-color: @nav-bg-color;
+    @media @phone {
+      background:
+        linear-gradient(
+          to bottom,
+          @platinum,
+          @granite-gray 5%,
+          @granite-gray 95%,
+          @platinum
+        );
+    }
+    @media @tablet {
+      background:
+        linear-gradient(
+          to bottom,
+          @platinum,
+          @granite-gray 10%,
+          @granite-gray 90%,
+          @platinum
+        );
+    }
+    @media @desktop {
+      background:
+        linear-gradient(
+          to bottom,
+          @platinum,
+          @granite-gray 15%,
+          @granite-gray 85%,
+          @platinum
+        );
+    }
   border: 1px solid @nav-border-color;
-  font-size: 2rem;
+  font-size: 1.75rem;
 
   nav {
     width: 100%;
@@ -14,12 +44,12 @@ header {
     text-align: center;
 
     @media @phone {
-      .grid(1fr 1fr, 1fr, 0, 0);
       // 2 rows, 1 columns
+      .grid(1fr 1fr, 1fr, 0, 0);
     }
     @media @tablet {
-      .grid(1fr, 1.25fr 0.75fr, 0, 0);
       // 1 rows, 2 columns
+      .grid(1.5fr, 1fr 0.75fr, 0, 0);
     }
 
     div:first-child {
@@ -27,57 +57,92 @@ header {
     }
     div:last-child {
       @media @phone {
-        .grid(1fr 1fr 1fr, 1fr, 0, 0);
-        // 3 rows, 1 columns
+        // 2 rows, 1 columns
+        .grid(1fr 1fr, 1fr, 0, 0);
         padding-bottom: 15px;
       }
       @media @tablet {
-        .grid(1fr 1fr 1fr, 1fr, 0, 0);
-        // 3 rows, 1 columns
+        // 2 rows, 1 columns
+        .grid(1fr 1fr, 1fr, 0, 0);
       }
       @media @desktop {
-        .grid(1fr, 1.5fr 1fr 1fr, 0, 0);
-        // 1 rows, 3 columns
+        // 1 rows, 2 columns
+        .grid(1fr, 2fr 1fr, 0, 0);
       }
       @media @desktop4k {
-        .grid(1fr, 2.5fr 1fr 1fr, 0, 0);
-        // 1 rows, 3 columns
+        // 1 rows, 2 columns
+        .grid(1fr, 2.5fr 1fr, 0, 0);
       }
     }
 
     div {
-      // height: fit-content;
-      // display: flex;
       a {
         line-height: 1.5;
-        // font-size: 1.6rem;
         margin: auto 0;
-        color: @nav-font-color;
         text-decoration: none;
+
+        transition: all .33s ease-in-out;
+
+        &:link {
+          color: @nav-link-color;
+        }
+        &:visited {
+          color: @nav-visited-color;
+        }
+        &:hover {
+          color: @nav-hover-color;
+
+          // text-decoration: none;
+          // padding-bottom: 2px;
+          // margin-bottom: 10px;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(
+              to left, 
+              transparent 0%,
+              @dark-cerulean 25%,
+              @space-cadet 50%,
+              @lapis-lazuli 75%,
+              transparent 100%
+            );
+          }
+        }
+        &:active {
+          color: @nav-active-color;
+        }
         @media @phone {
           padding: 5px;
         }
         @media @tablet {
-          padding: 10px;
+          padding: 0 10px;
         }
         @media @desktop {
-          padding: 15px;
+          padding: 15px 10px;
         }
         @media @desktop4k {
           padding: 25px;
-        }        
+        }
       }
 
       a.Title {
         font-weight: bold;
         font-style: italic;
         text-align: center;
-        @media @desktop4k {
+        @media @tablet {
+          padding: 25px 10px;
+        }
+        @media @desktop {
           text-align: left;
         }
       }
       
-      a.Organization {
+      a.About {
         text-align: right;
         grid-row-start: 1;
         grid-row-end: 1;
@@ -85,47 +150,18 @@ header {
         grid-column-end: 1;
 
         @media @phone {
-          // 3 rows, 1 columns
+          // 2 rows, 1 columns
           text-align: center;
         }
         @media @tablet {
-          // 3 rows, 1 columns
+          // 2 rows, 1 columns
         text-align: right;
-        }
-      }
-      
-      a.User {
-        @media @phone {
-          text-align: center;
-          // 3 rows, 1 columns
-          grid-row-start: 2;
-          grid-row-end: 2;
-          grid-column-start: 1;
-          grid-column-end: 1;
-        }
-        @media @tablet {
-          text-align: right;
-          // 3 rows, 1 columns
-          grid-row-start: 2;
-          grid-row-end: 2;
-          grid-column-start: 1;
-          grid-column-end: 1;
+        margin: 0;
+        margin-top: auto;
+        margin-right: 10px;
         }
         @media @desktop {
-          text-align: center;
-          // 1 rows, 3 columns
-          grid-row-start: 1;
-          grid-row-end: 1;
-          grid-column-start: 2;
-          grid-column-end: 2;
-        }
-        @media @desktop4k {
-          text-align: center;
-          // 1 rows, 3 columns
-          grid-row-start: 1;
-          grid-row-end: 1;
-          grid-column-start: 2;
-          grid-column-end: 2;
+          margin: auto 0;
         }
       }
       
@@ -133,32 +169,37 @@ header {
         text-align: right;
         @media @phone {
           text-align: center;
-          // 3 rows, 1 columns
-          grid-row-start: 3;
-          grid-row-end: 3;
+          // 2 rows, 1 columns
+          grid-row-start: 2;
+          grid-row-end: 2;
           grid-column-start: 1;
           grid-column-end: 1;
         }
         @media @tablet {
-          // 3 rows, 1 columns
-          grid-row-start: 3;
-          grid-row-end: 3;
+          margin: 0;
+          margin-bottom: auto;
+          margin-right: 10px;
+          // 2 rows, 1 columns
+          grid-row-start: 2;
+          grid-row-end: 2;
           grid-column-start: 1;
           grid-column-end: 1;
         }
         @media @desktop {
-          // 1 rows, 3 columns
+          margin: auto 0;
+          margin-right: 20px;
+          // 1 rows, 2 columns
           grid-row-start: 1;
           grid-row-end: 1;
-          grid-column-start: 3;
-          grid-column-end: 3;
+          grid-column-start: 2;
+          grid-column-end: 2;
         }
         @media @desktop4k {
-          // 1 rows, 3 columns
+          // 1 rows, 2 columns
           grid-row-start: 1;
           grid-row-end: 1;
-          grid-column-start: 3;
-          grid-column-end: 3;
+          grid-column-start: 2;
+          grid-column-end: 2;
         }
       }
     }

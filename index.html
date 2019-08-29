@@ -7,10 +7,18 @@
 
   <title>COPE: COrporate Planner for Events</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito%7COpen+Sans%7CRoboto%7CMontserrat&display=swap" rel="stylesheet">
-  <link href="css/index.css" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./img/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito%7COpen+Sans%7CRoboto%7CMontserrat&display=swap">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
 
   <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" data-auto-replace-svg="nest"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -22,65 +30,88 @@
         </a>
       </div>
       <div>
-        <a class="Organization" href="#">Organization&nbsp;<i class="fas fa-users"></i></a>
-        <a class="User" href="#">User&nbsp;<i class="fas fa-user-tie"></i></a>
-        <a class="SignIn" href="#">Sign&nbsp;In&nbsp;<i class="fas fa-sign-in-alt"></i></a>
+        <a class="About" href="about.html">About&nbsp;Us&nbsp;<i class="fas fa-users"></i></a>
+        <a class="SignIn" href="https://event-planner-20193-fe.netlify.com">Sign&nbsp;In&nbsp;<i class="fas fa-sign-in-alt"></i></a>
       </div>
     </nav>
   </header>
 
-  <div class="container home">
+  <div class="main-container home">
+    <div class="intro-flex">
+      <section class="intro-item">
+        <h2 class="welcome">Welcome</h2>
+        
+        <p>
+          <span>The COrporate Planner for Events (COPE) is here to help you schedule your corporate events, coordinating all the details to make sure everything needed is accomplished.</span>
+        </p>
+      </section>
+    
+      <section class="intro-item features">
+        <h2 class="features-benefits">Features &amp; Benefits</h2>
 
-    <section class="intro">
-      <!-- <img src="img/main-header.png"> -->
-
-      <h2>Welcome</h2>
-      
-      <p>
-        <span>The COrporate Planner for Events (COPE) is here to help you schedule your corporate events, coordinating all the details to make sure everything needed is accomplished.</span>
-      </p>
-    </section>
-
-    <!-- <section class="intro-images">
-        <img src="img/1.png" class="intro1" alt="">
-        <img src="img/2.png" class="intro2" alt="">
-        <img src="img/3.png" class="intro3" alt="">
-    </section> -->
-   
-    <section class="visit-places">
-      <h3>Features &amp; Benefits</h3>
-      
-      <p>
         <ul>
           <li>Create & Share Event Summaries</li>
           <li>Communicate with Vendors</li>
           <li>Collaborate with Team</li>
+          <li>Reduce Expenses</li>
         </ul>
-      </p>
-    </section>
+      </section>
+    </div>
     
-    <section class="walk">
-      <div class="walk-text">
-        <h3>Let's Go For A Walk</h3>
-        
-        <p>
-          <span>Maiores quasi aperiam omnis laboriosam, ex doloribus magnam, adipisci, reiciendis laudantium, illo at aspernatur molestiae non rerum! Autem rerum magnam facilis officiis, amet cupiditate vero, enim minus explicabo veritatis nobis.</span>
-        </p>
+    <section class="carousel-container">
+      <h3 class="samples">Samples of our Results</h3>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ol>
 
-        <div class="btn">
-          Sign Up
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="img/samples/01.jpg" alt="Sample 01" style="width:100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="img/samples/02.jpg" alt="Sample 02" style="width:100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="img/samples/03.jpg" alt="Sample 03" style="width:100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="img/samples/04.jpg" alt="Sample 04" style="width:100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="img/samples/05.jpg" alt="Sample 05" style="width:100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="img/samples/06.jpg" alt="Sample 06" style="width:100%;">
+          </div>
         </div>
-      </div>
       
-      <!-- <div class="walk-img">
-        <img src="img/walk.png" alt="">
-      </div> -->
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+
+      <script type="text/javascript">
+        let images = document.querySelector('div.carousel-inner');
+        let r = 0;
+        for (let i = images.children.length; i >= 0; i--) {
+          r = Math.random() * i | 0;
+          images.appendChild(images.children[r]);
+        }
+        images.children[0].classList.add('active');
+      </script>
     </section>
-
   </div>
-
-  <!-- <footer>
-    <p>&copy; COPE 2019</p>
-  </footer> -->
 </body>
 </html>
